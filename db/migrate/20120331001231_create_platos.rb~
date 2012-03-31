@@ -1,0 +1,21 @@
+class CreatePlatos < ActiveRecord::Migration
+  def change
+    create_table :platos do |t|
+      t.references :usuarios
+      t.references :categoria
+      t.references :regions
+      t.string "nombre", :limit =>100
+      t.integer "tiempo_preparacion"
+      t.integer "tiempo_coccion"
+      t.integer "visitas"
+      t.text "preparacion"
+      t.integer "sum_ratings"
+      t.integer "cant_ratings"
+      t.timestamps
+    end
+    #add_index("platos","usuarios_id")
+    #add_index("platos","categoria_id")
+    #add_index("platos","regions_id")
+    
+  end
+end

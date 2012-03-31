@@ -1,0 +1,16 @@
+class AgregarRelacionPlatosIngredientes < ActiveRecord::Migration
+  def up
+    create_table :ingredientes_platos, :id=>false do |t|
+    t.references :platos
+    t.references :ingredientes
+    t.decimal "cantidad"
+    t.boolean "flg_principal"
+    t.timestamps
+    
+    end 
+  end
+
+  def down
+    drop_table :ingredientes_platos
+  end
+end
